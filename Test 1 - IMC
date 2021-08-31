@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Arq1 {
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int PesoN, PesoA, SobreP, Obeso;
+        float [] imc = new float[4];
+        float [] Altura = new float[4];
+        float [] Peso = new float[4];
+        PesoA = 0;
+        PesoN = 0;
+        SobreP = 0;
+        Obeso = 0;
+
+        for (int i = 0; i < 4; i++){
+            System.out.println("Insira a altura da "+ (i+1) + "° pessoa:");
+            Altura[i] = input.nextFloat();
+            System.out.println("Insira o peso da "+ (i+1) + "° pessoa:");
+            Peso[i] = input.nextFloat();
+            imc[i] = (Peso[i]/(Altura[i]*Altura[i]));
+            System.out.println("IMC do paciente: "+ imc[i]);
+                if (imc[i] < 18.5){
+                    PesoA = PesoA + 1;
+                } else if (18.5 < imc[i] && imc[i] < 24.9){
+                    PesoN++;
+                } else if (25 < imc[i] && imc[i] < 29.9){
+                    SobreP++;
+                } else if (30 <= imc[i]){
+                    Obeso++;
+                }
+        }
+            System.out.println("Quantidade de pacientes com peso abaixo do normal: " + PesoA);
+            System.out.println("Quantidade de pacientes com peso normal: " + PesoN);
+            System.out.println("Quantidade de pacientes com sobrepeso: " + SobreP);
+            System.out.println("Quantidade de pacientes obesos: " + Obeso);
+
+
+
+
+    }
+}
